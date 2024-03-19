@@ -12,6 +12,10 @@ function readXlsx() {
   return workSheetsFromFile[0].data;
 }
 
+function checkUrl(url) {
+  return url.match(/\.(jpeg|jpg|gif|png)$/) != null;
+}
+
 let data = await readXlsx();
 console.log(`Data downloaded: ${chalk.red(data.length)} rows`);
 
@@ -28,6 +32,11 @@ for (let i = 0; i < data.length; i++) {
 
   if (!data[i][config.image]) {
     console.log(chalk.bgRed(`Row ${i + 1} has no image`));
+    continue;
+  }
+
+  if (!checkUrl(data[i][config.image])) {
+    console.log(chalk.bgRed(`Row ${i + 1} has invalid image url`));
     continue;
   }
 
