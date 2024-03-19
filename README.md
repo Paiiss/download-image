@@ -1,4 +1,4 @@
-## Panduan Penggunaan Scri
+## Panduan Penggunaan Script
 
 berikut adalah langkah-langkahnya:
 
